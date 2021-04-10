@@ -59,6 +59,50 @@ h6 {
 	font-size: 1rem;
 }
 
+p {
+	/* Creates a new stacking context to allow the a::before to work */
+	position: relative;
+	z-index: 1;
+}
+
+a {
+	position: relative;
+	color: var(--chocolate-brown);
+}
+
+a::before {
+	position: absolute;
+	content: '';
+	width: calc(100% + 4px);
+	height: calc(100% + 4px);
+	left: -2px;
+	right: -2px;
+	top: -2px;
+	bottom: -2px;
+	border-radius: 4px;
+	background: var(--raspberry-pink-highlight);
+	z-index: -1;
+	opacity: 0;
+	transition: all 0.25s linear;
+}
+
+a:hover::before {
+	opacity: 1;
+	transition: all 0.25s linear;
+}
+
+/* a:hover,
+a:focus {
+	background: var(--raspberry-pink);
+	transition: all 0.25s linear;
+	border-radius: 4px;
+} */
+
+a[target='_blank']::after {
+	content: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAQElEQVR42qXKwQkAIAxDUUdxtO6/RBQkQZvSi8I/pL4BoGw/XPkh4XigPmsUgh0626AjRsgxHTkUThsG2T/sIlzdTsp52kSS1wAAAABJRU5ErkJggg==);
+	margin: 0 3px 0 5px;
+}
+
 section {
 	position: relative;
 	background: var(--mint-green);
