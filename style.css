@@ -26,6 +26,51 @@ body {
 	padding: 0;
 }
 
+header {
+	background: var(--raspberry-pink);
+	border-bottom: 4px solid var(--raspberry-pink-highlight);
+}
+
+footer {
+	background: var(--raspberry-pink);
+	border-top: 4px solid var(--raspberry-pink-highlight);
+	text-align: center;
+}
+
+header ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	max-width: 700px;
+	margin: 0 auto;
+}
+
+header li {
+	list-style: none;
+}
+
+header li:first-child {
+	margin-right: auto;
+	font-family: 'Lobster', cursive;
+	font-size: 1.75rem;
+}
+
+header a,
+footer a {
+	display: inline-block;
+	text-decoration: none;
+	padding: 0 16px;
+	line-height: 48px;
+	color: var(--chocolate-brown);
+	transition: all 0.25s ease-in-out;
+}
+
+header a:hover,
+footer a:hover {
+	background: var(--mint-green);
+	transition: all 0.25s ease-in-out;
+}
+
 main {
 	max-width: 700px;
 	margin: 0 auto;
@@ -61,18 +106,23 @@ h6 {
 	font-size: 1rem;
 }
 
+ul {
+	margin: 0;
+	padding: 0;
+}
+
 p {
 	/* Creates a new stacking context to allow the a::before to work */
 	position: relative;
 	z-index: 1;
 }
 
-a {
+p a {
 	position: relative;
 	color: var(--chocolate-brown);
 }
 
-a::before {
+p a::before {
 	position: absolute;
 	content: '';
 	width: calc(100% + 4px);
@@ -88,7 +138,7 @@ a::before {
 	transition: all 0.25s linear;
 }
 
-a:hover::before {
+p a:hover::before {
 	opacity: 1;
 	transition: all 0.25s linear;
 }
